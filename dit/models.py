@@ -15,7 +15,7 @@ import numpy as np
 import math
 from timm.models.vision_transformer import PatchEmbed, Attention, Mlp
 
-from module_test.HSPA import *
+# from module_test.HSPA import *
 
 def modulate(x, shift, scale):
     return x * (1 + scale.unsqueeze(1)) + shift.unsqueeze(1)
@@ -172,7 +172,7 @@ class DiT(nn.Module):
 
         self.x_embedder = PatchEmbed(input_size, patch_size, in_channels, hidden_size, bias=True)
         self.t_embedder = TimestepEmbedder(hidden_size)
-        self.hspa = HSPA(channel=hidden_size, reduction=2, res_scale=1, conv=default_conv, topk=128)
+        # self.hspa = HSPA(channel=hidden_size, reduction=2, res_scale=1, conv=default_conv, topk=128)
         # self.y_embedder = LabelEmbedder(num_classes, hidden_size, class_dropout_prob)
         num_patches = self.x_embedder.num_patches
         # Will use fixed sin-cos embedding:
